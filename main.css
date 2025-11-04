@@ -56,7 +56,25 @@
 
         .hero-content {
             max-width: 800px;
+            min-width: 7000px;
             margin: 0 auto;
+            position: relative; /* Needed for absolute positioning of slides */
+            min-height: 300px; /* Give some space for the content */
+        }
+
+        .typewriter-slide {
+            position: absolute;
+            top: 140px;
+            left: 0;
+            width: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .typewriter-slide.active {
+            opacity: 1;
+            visibility: visible;
         }
 
         .hero p {
@@ -393,6 +411,12 @@
         .footer-text {
             font-size: 1.2em;
             margin: 20px 0;
+        }
+
+        /* Footnote */
+        .footnote {
+            font-size: 0.8em;
+            margin-top: 40px;
         }
 
         /* Background Colors */

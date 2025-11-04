@@ -24,9 +24,25 @@
         <div class="container">
             <div class="hero-content">
                 <img src="siap_logo.png" alt="SIAP Logo" height="120px">
-                <p id="typewriter-text">
-                    <strong>DBD termasuk dalam 10 penyakit teratas yang menyerang karyawan</strong> - risiko ini nyata dan bisa berdampak langsung pada produktivitas perusahaan. Saatnya ambil peran nyata dengan bergabung dalam gerakan SIAP Lawan Dengue dan ciptakan tempat kerja yang aman dan sehat.
-                </p>
+                <div class="typewriter-slide">
+                    <p id="typewriter-text1">Sekitar 73% kasus dengue terjadi pada usia produktif¹.</p>
+                    <div class="footnote" id="footnote1">1. Pambudi, I. (2024). Kebijakan dan program pemerintah dalam pengendalian dengue di Indonesia. Dipresentasikan dalam acara ASEAN Dengue Day, Batam, 27 Juni 2024.</div>
+                </div>
+                <div class="typewriter-slide">
+                    <p id="typewriter-text2">Karyawan yang terinfeksi demam berdarah berat juga harus meninggalkan pekerjaannya.<br>Pasca infeksi, 2 dari 3 pasien mengalami kelelahan hingga beberapa minggu setelah sembuh dari demam berdarah¹.</p>
+                    <div class="footnote" id="footnote2">1. Sigera, P . C., et al. (2021). Dengue and post-infection fatigue: Findings from a prospective cohort – The Colombo Dengue Study. Transactions of the Royal Society of Tropical Medicine and Hygiene, 115(6), 669–676.</div>
+                </div>
+                <div class="typewriter-slide">
+                    <p id="typewriter-text3">Dengue termasuk dalam daftar 10 penyakit teratas yang dialami oleh karyawan¹.<br>Waktu absen yang dibutuhkan karyawan untuk dirawat akibat dengue¹.<br>Biaya yang dikeluarkan perusaahan setiap tahun untuk klaim dengue (untuk pasien rawat inap dan rawat jalan dengan skala 4000 karyawan)¹.<br>Kisaran biaya medis yang diklaim untuk perawatan dengue per pasien (tergantung dari tipe kelas rawat pasien dan tingkat keparahan pasien)².</p>
+                    <div class="footnote" id="footnote3">
+                        <p>1. IPSOS. (2022). Final Report of Value Message of Dengue Vaccine Candidate TAK-003. Data on file.</p>
+                        <p>2. Nadjib, M., Setiawan, E., Putri, S., Nealon, J., Beucher, S., Hadinegoro, S.R., et al. (2019). Economic burden of dengue in Indonesia. PLoS Neglected Tropical Diseases, 13(1), e0007038. https://doi.org/10.1371/journal.pntd.0007038</p>
+                    </div>
+                </div>
+                <div class="typewriter-slide">
+                    <p id="typewriter-text4">Studi kasus 2018-2020: 45 karyawan menderita dengue dan harus absen selama enam hari kerja, total loss perusahaan: 270 hari kerja. <br><br>Beban ekonomi yang ditanggung perusahaan:<br>* Sick pay selama 270 hari<br>* Replacement wages selama 270 hari<br>* Biaya training pekerja pengganti<br>* Biaya evakuasi untuk area remote<br>* Biaya medis untuk 45 karyawan <br></p>
+                    <div class="footnote" id="footnote4">1.PERDOKI Cabang DKI Jakarta. 2023.</div>
+                </div>
             </div>
         </div>
     </section>
@@ -336,7 +352,66 @@
             autoScrollCarousel('publications');
             autoScrollCarousel('events');
 
-            const textElement = document.getElementById('typewriter-text');
+            const slides = document.querySelectorAll('.typewriter-slide');
+            let currentSlideIndex = 0;
+
+            function typeWriter(element, onComplete) {
+                if (!element) {
+                    if (onComplete) onComplete();
+                    return;
+                }
+                
+                const originalHTML = element.innerHTML;
+                const textContent = element.textContent;
+                element.innerHTML = ''; // Clear the element
+                let i = 0;
+
+                function type() {
+                    if (i < textContent.length) {
+                        element.textContent += textContent.charAt(i);
+                        i++;
+                        setTimeout(type, 20); // Adjust speed here
+                    } else {
+                        element.innerHTML = originalHTML; // Restore original HTML
+                        if (onComplete) onComplete();
+                    }
+                }
+                type();
+            }
+
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    slide.classList.remove('active');
+                });
+
+                const currentSlide = slides[index];
+                currentSlide.classList.add('active');
+
+                const mainText = currentSlide.querySelector('p:not(.footnote)');
+                const footnote = currentSlide.querySelector('.footnote');
+
+                // Hide footnote initially
+                if(footnote) footnote.style.opacity = 0;
+
+                typeWriter(mainText, () => {
+                    // After main text is done, type the footnote
+                    if(footnote) {
+                        footnote.style.opacity = 1;
+                        typeWriter(footnote, () => {
+                            // After footnote is done, wait and move to next slide
+                            setTimeout(() => {
+                                currentSlide.classList.remove('active');
+                                setTimeout(() => {
+                                    currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+                                    showSlide(currentSlideIndex);
+                                }, 500); // Wait for fade out
+                            }, 3000); // Wait 3 seconds before switching
+                        });
+                    }
+                });
+            }
+
+            showSlide(currentSlideIndex);
             
             // Intersection Observer for bottom-nav
             const bottomNav = document.querySelector('.bottom-nav');
@@ -373,33 +448,6 @@
             observer.observe(heroSection);
             observer.observe(footerSection);
 
-            // Pastikan elemennya ada
-            if (textElement) {
-                // Simpan konten asli (termasuk tag <strong>)
-                const originalHTML = textElement.innerHTML;
-                // Ambil hanya teksnya untuk efek ketik
-                const textContent = textElement.textContent;
-                
-                // Kosongkan elemen
-                textElement.innerHTML = '';
-                let i = 0;
-                
-                function typeWriter() {
-                    if (i < textContent.length) {
-                        // Tambahkan huruf satu per satu
-                        textElement.textContent += textContent.charAt(i);
-                        i++;
-                        // Atur kecepatan di sini (dalam milidetik)
-                        setTimeout(typeWriter, 40);
-                    } else {
-                        // Setelah selesai, kembalikan HTML asli agar tag <strong> muncul
-                        textElement.innerHTML = originalHTML;
-                    }
-                }
-                
-                // Mulai efeknya
-                typeWriter();
-            }
         });
     </script>
 </body>
