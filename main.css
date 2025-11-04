@@ -56,7 +56,7 @@
 
         .hero-content {
             max-width: 800px;
-            min-width: 7000px;
+            min-width: 700px;
             margin: 0 auto;
             position: relative; /* Needed for absolute positioning of slides */
             min-height: 300px; /* Give some space for the content */
