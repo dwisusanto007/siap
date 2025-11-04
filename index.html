@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIAP Lawan Dengue - Sinergi Aksi Perusahaan</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo-left">
+            <img src="siap_header_logo.png" alt="Siap Header Logo" height="40px">
+        </div>
+        <div class="logo-right">
+            <img src="logo_header_kecil.png" alt="sponsor header Logo" height="40px">
+        </div>
+    </header>
+    <!-- Hero Section -->
+    <section class="hero">
+        <video autoplay loop muted playsinline id="hero-video">
+            <source src="SIAP.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="container">
+            <div class="hero-content">
+                <img src="siap_logo.png" alt="SIAP Logo" height="120px">
+                <p id="typewriter-text">
+                    <strong>DBD termasuk dalam 10 penyakit teratas yang menyerang karyawan</strong> - risiko ini nyata dan bisa berdampak langsung pada produktivitas perusahaan. Saatnya ambil peran nyata dengan bergabung dalam gerakan SIAP Lawan Dengue dan ciptakan tempat kerja yang aman dan sehat.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partner Companies Section -->
+    <section class="bg-light">
+        <div class="container">
+            <h2 class="section-title">Mari Menjadi Bagian dalam SIAP Lawan Dengue!</h2>
+            <p class="section-subtitle">Berikut Perusahaan yang sudah menjadi Bagian dari SIAP Lawan Dengue:</p>
+
+            <div class="carousel-container">
+                <div class="partners-grid" id="partners-slider">
+                    <div class="partner-logo">
+                        <img src="eni_logo.png" alt="ENI Logo" height="200px">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="dbs_logo.png" alt="DBS Logo" height="200px">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="png_logo.png" alt="P&G Logo" height="200px">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="nestle_logo.png" alt="Nestle Logo" height="200px">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="langham_logo.png" alt="Langham Logo" height="200px">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="exxon_logo.png" alt="ExxonMobil Logo" height="200px">
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Hospital Partners Section -->
+    <section id="hospitals" class="bg-white">
+        <div class="container">
+            <h2 class="section-title">Partner Rumah Sakit & Klinik</h2>
+            <p class="section-subtitle">penyedia layanan kerja sama vaksinasi DBD</p>
+
+            <div class="hospital-grid">
+                <div class="hospital-card">
+                    <img src="cakra_medika.png" alt="Cakra Medika Logo" height="130px">
+                </div>
+                <div class="hospital-card">
+                    <img src="tirta_medical_centre.png" alt="Tirta Medical Centre Logo" height="130px">
+                </div>
+                <div class="hospital-card">
+                    <img src="good_doctor.png" alt="Good Doctor Logo" height="130px">
+                </div>
+                <div class="hospital-card">
+                    <img src="imuni.png" alt="Imuni Logo" height="130px">
+                </div>
+                <div class="hospital-card">
+                    <img src="fullerton.png" alt="Fullerton Health Indonesia Logo" height="130px">
+                </div>
+                 <div class="hospital-card">
+                    <img src="inharmony.png" alt="InHarmony Logo" height="130px">
+                </div>
+                <div class="hospital-card">
+                    <img src="prodia.png" alt="Prodia Logo" height="130px">
+                </div>
+                <div class="hospital-card">
+                    <img src="weterindo.png" alt="Weterindo Logo" height="130px">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Forms Section -->
+    <section id="join" class="bg-light" style="display: none;">
+        <div class="container">
+            <h2 class="section-title">Isi Formulir Dibawah ini</h2>
+
+            <div class="forms-container">
+                <!-- Join Form -->
+                <div class="form-card">
+                    <h3>Partner Rumah Sakit</h3>
+                    <p style="margin-bottom: 20px; color: #666;">Hai, Perusahaan Kami ingin bekerjasama untuk melakukan Vaksinasi Demam Berdarah</p>
+
+                    <form>
+                        <div class="form-group">
+                            <label>Saya yang mewakili perusahaan:</label>
+                            <input type="text" placeholder="Nama Anda">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Nama Perusahaan:</label>
+                            <input type="text" placeholder="Nama Perusahaan">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Nomor yang dapat dihubungi:</label>
+                            <input type="tel" placeholder="Nomor Telepon">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Jabatan:</label>
+                            <input type="text" placeholder="Jabatan Anda">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Upload Logo Perusahaan:</label>
+                            <input type="file" accept="image/*">
+                        </div>
+
+                        <p style="margin: 15px 0; font-size: 0.9em;">Dengan ini menyatakan ingin bergabung dalam Sinergi Aksi Perusahaan (SIAP).</p>
+
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="logo-consent" required>
+                            <label for="logo-consent">*Kami menyetujui bahwa logo perusahaan dapat digunakan untuk keperluan publikasi kegiatan Sinergi Aksi Perusahaan (SIAP).</label>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Submit</button>
+                    </form>
+                </div>
+
+                <!-- Vaccination Collaboration Form -->
+                <div class="form-card">
+                    <h3>To: Takeda</h3>
+                    <p style="margin-bottom: 20px; color: #666;">Subject: SIAP LAWAN DENGUE</p>
+
+                    <form>
+                        <div class="form-group">
+                            <label>Nama Perusahaan:</label>
+                            <input type="text" placeholder="Nama Perusahaan">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Nomor yang dapat dihubungi:</label>
+                            <input type="tel" placeholder="Nomor Telepon">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Jabatan:</label>
+                            <input type="text" placeholder="Jabatan Anda">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Partner Rumah Sakit:</label>
+                            <select>
+                                <option value="">Pilih Partner</option>
+                                <option value="cakra">Cakra Medika</option>
+                                <option value="inharmony">InHarmony</option>
+                                <option value="tirta">Tirta Medical Centre</option>
+                                <option value="gooddoctor">Good Doctor</option>
+                                <option value="fullerton">Fullerton Health Indonesia</option>
+                            </select>
+                        </div>
+
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="data-consent" required>
+                            <label for="data-consent">Saya setuju untuk memberikan data dan memahami bahwa data tersebut akan digunakan sesuai tujuan yang dijelaskan, dijaga kerahasiaannya, tidak dibagikan tanpa izin, serta saya bertanggung jawab atas kebenaran data yang saya kirimkan dan bahwa syarat ini dapat berubah sewaktu-waktu dengan pemberitahuan sebelumnya.</label>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="story" class="bg-white">
+        <div class="container">
+            <h2 class="section-title">PUBLIKASI</h2>
+
+            <div class="carousel-container">
+                <div class="carousel" id="publications">
+                    <div class="carousel-item">
+                        <img src="img_thumb.png" alt="Publikasi 1">
+                        <div class="carousel-item-content">
+                            <h3>Website Penunjukan DBD di Tempat Kerja</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img_thumb.png" alt="Publikasi 2">
+                        <div class="carousel-item-content">
+                            <h3>Corporate Vaccine Day</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img_thumb.png" alt="Publikasi 3">
+                        <div class="carousel-item-content">
+                            <h3>Training HR & Medical Team: DBD Prevention Program</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img_thumb.png" alt="Publikasi 4">
+                        <div class="carousel-item-content">
+                            <h3>Webinar Pencegahan DBD di Tempat Kerja</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="bg-light">
+        <div class="container">
+            <h2 class="section-title">EVENT</h2>
+
+            <div class="carousel-container">
+                <div class="carousel" id="events">
+                    <div class="event-item">
+                        <img src="img_thumb.png" alt="Event 1">
+                        <div class="event-details">
+                            <h3>Webinar Pencegahan DBD di Tempat Kerja</h3>
+                            <p class="event-info"><strong>Acara:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                            <p class="event-info"><strong>Waktu:</strong> 12 Juni 2025</p>
+                            <p class="event-info"><strong>Lokasi:</strong> Online</p>
+                        </div>
+                    </div>
+                    <div class="event-item">
+                        <img src="img_thumb.png" alt="Event 2">
+                        <div class="event-details">
+                            <h3>Corporate Vaccine Day</h3>
+                            <p class="event-info"><strong>Acara:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                            <p class="event-info"><strong>Waktu:</strong> 12 Juni 2025</p>
+                            <p class="event-info"><strong>Lokasi:</strong> Jakarta</p>
+                        </div>
+                    </div>
+                    <div class="event-item">
+                        <img src="img_thumb.png" alt="Event 3">
+                        <div class="event-details">
+                            <h3>Training HR & Medical Team: DBD Prevention Program</h3>
+                            <p class="event-info"><strong>Acara:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                            <p class="event-info"><strong>Waktu:</strong> 12 Juni 2025</p>
+                            <p class="event-info"><strong>Lokasi:</strong> Hybrid</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="bottom-nav">
+        <div class="nav-buttons">
+            <img src="floating_menu.png" alt="floating menu" height="80px">
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer id="takeda">
+        <div class="container">
+
+            <div class="footer-logo">
+                    <p style="color: #00BCD4; font-size: 34px; padding: 0 10px;letter-spacing: -2px; line-height: 1; margin: 80px;">
+                        Mari menjadi bagian dari gerakan bersama ini. <br>Kesehatan karyawan adalah kunci kesuksesan bersama!
+                    </p>
+                <img src="siap_logo.png" alt="SIAP Logo" height="200px" style="margin-top: 10px;">
+            </div>
+        </div>
+    </footer>
+    <div class="footer-space" style="height: 100px; background-color: #00BCD4;"></div>
+
+    <script>
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function scrollCarousel(carouselId, direction) {
+            const carousel = document.getElementById(carouselId);
+            const scrollAmount = 320; // Width of item + gap
+            carousel.scrollBy({
+                left: direction * scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+
+        // Autoplay carousel
+        function autoScrollCarousel(carouselId, speed = 1) {
+            const carousel = document.getElementById(carouselId);
+            if (!carousel) return;
+
+            let scrollAmount = 0;
+            setInterval(() => {
+                if (carousel.scrollLeft < (carousel.scrollWidth - carousel.clientWidth)) {
+                    carousel.scrollLeft += speed;
+                } else {
+                    carousel.scrollTo({ left: 0, behavior: 'smooth' });
+                }
+            }, 30); // Interval in milliseconds
+        }
+
+        // Form submission handlers
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Terima kasih! Formulir Anda telah dikirim.');
+                this.reset();
+            });
+        });
+    </script>
+    <script>
+        // Typewriter effect
+        document.addEventListener('DOMContentLoaded', function() {
+            autoScrollCarousel('partners-slider');
+            autoScrollCarousel('publications');
+            autoScrollCarousel('events');
+
+            const textElement = document.getElementById('typewriter-text');
+            
+            // Intersection Observer for bottom-nav
+            const bottomNav = document.querySelector('.bottom-nav');
+            const heroSection = document.querySelector('.hero');
+            const footerSection = document.querySelector('footer');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1 // Trigger when 10% of the element is visible
+            };
+
+            const observerCallback = (entries, observer) => {
+                let heroIsVisible = false;
+                let footerIsVisible = false;
+
+                entries.forEach(entry => {
+                    if (entry.target.classList.contains('hero')) {
+                        heroIsVisible = entry.isIntersecting;
+                    }
+                    if (entry.target.tagName === 'FOOTER') {
+                        footerIsVisible = entry.isIntersecting;
+                    }
+                });
+
+                if (heroIsVisible || footerIsVisible) {
+                    bottomNav.classList.add('hidden');
+                } else {
+                    bottomNav.classList.remove('hidden');
+                }
+            };
+
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+            observer.observe(heroSection);
+            observer.observe(footerSection);
+
+            // Pastikan elemennya ada
+            if (textElement) {
+                // Simpan konten asli (termasuk tag <strong>)
+                const originalHTML = textElement.innerHTML;
+                // Ambil hanya teksnya untuk efek ketik
+                const textContent = textElement.textContent;
+                
+                // Kosongkan elemen
+                textElement.innerHTML = '';
+                let i = 0;
+                
+                function typeWriter() {
+                    if (i < textContent.length) {
+                        // Tambahkan huruf satu per satu
+                        textElement.textContent += textContent.charAt(i);
+                        i++;
+                        // Atur kecepatan di sini (dalam milidetik)
+                        setTimeout(typeWriter, 40);
+                    } else {
+                        // Setelah selesai, kembalikan HTML asli agar tag <strong> muncul
+                        textElement.innerHTML = originalHTML;
+                    }
+                }
+                
+                // Mulai efeknya
+                typeWriter();
+            }
+        });
+    </script>
+</body>
+</html>
