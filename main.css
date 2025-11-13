@@ -413,6 +413,16 @@
             margin: 20px 0;
         }
 
+        .footer-space {
+            height: 100px;
+            background-color: #00BCD4;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.9em;
+        }
+
         /* Footnote */
         .footnote {
             font-size: 0.8em;
