@@ -8,8 +8,14 @@
 </head>
 <body>
     <header class="header">
-        <div class="logo-left">
-            <img src="logo_siap_header.png" alt="Siap Header Logo" height="40px">
+        <div class="header-left">
+            <div class="logo-left">
+                <img src="logo_siap_header.png" alt="Siap Header Logo" height="40px">
+            </div>
+            <nav class="header-menu">
+                <a href="#story">Bagikan Kisah Perusahaan Anda</a>
+                <a href="#takeda">Terhubung Dengan Takeda</a>
+            </nav>
         </div>
         <div class="logo-right">
             <img src="logo_header_kecil.png" alt="sponsor header Logo" height="40px">
@@ -26,30 +32,28 @@
     <!-- Partner Companies Section -->
     <section class="bg-light">
         <div class="container">
-            <h2 class="section-title">Mari Menjadi Bagian dalam SIAP Lawan Dengue!</h2>
-            <p class="section-subtitle">Berikut Perusahaan yang sudah menjadi Bagian dari SIAP Lawan Dengue:</p>
+            <h2 class="section-title">Berikut Perusahaan yang menjadi Pelopor<br>Pencegahan Dengue di Tempat Kerja</h2>
+            <p class="section-subtitle">Mari Menjadi Bagian dalam SIAP Lawan Dengue!</p>
 
-            <div class="carousel-container">
-                <div class="partners-grid" id="partners-slider">
-                    <div class="partner-logo">
-                        <img src="eni_logo.png" alt="ENI Logo" height="200px">
+            <div class="partners-wrapper">
+                <button class="carousel-nav prev" onclick="changeSlide(-1)">‹</button>
+                <div class="partners-container">
+                    <div class="partner-slide active">
+                        <img src="company_slide1.png" alt="Company Partners Slide 1">
                     </div>
-                    <div class="partner-logo">
-                        <img src="dbs_logo.png" alt="DBS Logo" height="200px">
+                    <div class="partner-slide">
+                        <img src="company_slide2.png" alt="Company Partners Slide 2">
                     </div>
-                    <div class="partner-logo">
-                        <img src="png_logo.png" alt="P&G Logo" height="200px">
-                    </div>
-                    <div class="partner-logo">
-                        <img src="nestle_logo.png" alt="Nestle Logo" height="200px">
-                    </div>
-                    <div class="partner-logo">
-                        <img src="langham_logo.png" alt="Langham Logo" height="200px">
-                    </div>
-                    <div class="partner-logo">
-                        <img src="exxon_logo.png" alt="ExxonMobil Logo" height="200px">
+                    <div class="partner-slide">
+                        <img src="company_slide3.png" alt="Company Partners Slide 3">
                     </div>
                 </div>
+                <button class="carousel-nav next" onclick="changeSlide(1)">›</button>
+            </div>
+            <div class="slide-indicators">
+                <span class="indicator active" onclick="goToSlide(0)"></span>
+                <span class="indicator" onclick="goToSlide(1)"></span>
+                <span class="indicator" onclick="goToSlide(2)"></span>
             </div>
             
         </div>
@@ -58,33 +62,53 @@
     <!-- Hospital Partners Section -->
     <section id="hospitals" class="bg-white">
         <div class="container">
-            <h2 class="section-title">Partner Rumah Sakit & Klinik</h2>
-            <p class="section-subtitle">penyedia layanan kerja sama vaksinasi DBD</p>
-
+            <p class="section-subtitle">Partner Rumah Sakit & Klinik<br>Yuk, wujudkan kolaborasi nyata dalam pencegahan DBD!</p>
+            <h2 class="section-title">Klik logo penyedia layanan kerja sama vaksinasi DBD sekarang juga!</h2>
+            
             <div class="hospital-grid">
                 <div class="hospital-card">
-                    <img src="cakra_medika.png" alt="Cakra Medika Logo" height="130px">
+                    <img src="cakra_medika.png" alt="Cakra Medika Logo">
                 </div>
                 <div class="hospital-card">
-                    <img src="tirta_medical_centre.png" alt="Tirta Medical Centre Logo" height="130px">
+                    <img src="tirta_medical_centre.png" alt="Tirta Medical Centre Logo">
                 </div>
                 <div class="hospital-card">
-                    <img src="good_doctor.png" alt="Good Doctor Logo" height="130px">
+                    <img src="good_doctor.png" alt="Good Doctor Logo">
                 </div>
                 <div class="hospital-card">
-                    <img src="imuni.png" alt="Imuni Logo" height="130px">
+                    <img src="imuni.png" alt="Imuni Logo">
                 </div>
                 <div class="hospital-card">
-                    <img src="fullerton.png" alt="Fullerton Health Indonesia Logo" height="130px">
-                </div>
-                 <div class="hospital-card">
-                    <img src="inharmony.png" alt="InHarmony Logo" height="130px">
+                    <img src="fullerton.png" alt="Fullerton Health Indonesia Logo">
                 </div>
                 <div class="hospital-card">
-                    <img src="prodia.png" alt="Prodia Logo" height="130px">
+                    <img src="inharmony.png" alt="InHarmony Logo">
                 </div>
                 <div class="hospital-card">
-                    <img src="weterindo.png" alt="Weterindo Logo" height="130px">
+                    <img src="prodia.png" alt="Prodia Logo">
+                </div>
+                <div class="hospital-card">
+                    <img src="westerindo.png" alt="Weterindo Logo">
+                </div>
+                <div class="hospital-card">
+                    <img src="kimia_farma.png" alt="Kuma Farma Logo">
+                </div>
+                <div class="hospital-card">
+                    <img src="siloam.png" alt="siloam Logo">
+                </div>
+                <div class="hospital-card">
+                    <img src="apl.png" alt="APL Logo">
+                </div>
+                <div class="hospital-card">
+                </div>
+                <div class="hospital-card">
+                   
+                </div>
+                <div class="hospital-card">
+                    
+                </div>
+                <div class="hospital-card">
+                    
                 </div>
             </div>
         </div>
@@ -298,6 +322,41 @@
             });
         }
 
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.partner-slide');
+        const indicators = document.querySelectorAll('.indicator');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                indicators[i].classList.remove('active');
+            });
+            
+            if (index >= slides.length) {
+                currentSlide = 0;
+            } else if (index < 0) {
+                currentSlide = slides.length - 1;
+            } else {
+                currentSlide = index;
+            }
+            
+            slides[currentSlide].classList.add('active');
+            indicators[currentSlide].classList.add('active');
+        }
+
+        function changeSlide(direction) {
+            showSlide(currentSlide + direction);
+        }
+
+        function goToSlide(index) {
+            showSlide(index);
+        }
+
+        // Auto slide every 5 seconds
+        setInterval(() => {
+            changeSlide(1);
+        }, 5000);
+
         // Autoplay carousel
         function autoScrollCarousel(carouselId, speed = 1) {
             const carousel = document.getElementById(carouselId);
@@ -324,14 +383,14 @@
     </script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            autoScrollCarousel('partners-slider');
             autoScrollCarousel('publications');
             autoScrollCarousel('events');
             
-            // Intersection Observer for bottom-nav
+            // Intersection Observer for bottom-nav and header menu color
             const bottomNav = document.querySelector('.bottom-nav');
             const heroSection = document.querySelector('.hero');
             const footerSection = document.querySelector('footer');
+            const headerMenu = document.querySelector('.header-menu');
 
             const observerOptions = {
                 root: null,
@@ -346,6 +405,12 @@
                 entries.forEach(entry => {
                     if (entry.target.classList.contains('hero')) {
                         heroIsVisible = entry.isIntersecting;
+                        // Change header menu color based on hero visibility
+                        if (heroIsVisible) {
+                            headerMenu.classList.add('white-text');
+                        } else {
+                            headerMenu.classList.remove('white-text');
+                        }
                     }
                     if (entry.target.tagName === 'FOOTER') {
                         footerIsVisible = entry.isIntersecting;
