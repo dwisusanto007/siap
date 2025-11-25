@@ -18,44 +18,9 @@
     <!-- Hero Section -->
     <section class="hero">
         <video autoplay loop muted playsinline id="hero-video">
-            <source src="SIAP.mp4" type="video/mp4">
+            <source src="rev_hero.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-        <div class="container">
-            <div class="hero-content">
-                <img src="siap_logo.png" alt="SIAP Logo" height="120px">
-                <div class="typewriter-slide">
-                    <p id="typewriter-text1">Sekitar 73% kasus dengue terjadi pada usia produktif.¹</p>
-                    <div class="footnote" id="footnote1">1. Pambudi, I. (2024). Kebijakan dan program pemerintah dalam pengendalian dengue di Indonesia. Dipresentasikan dalam acara ASEAN Dengue Day, Batam, 27 Juni 2024.</div>
-                </div>
-                <div class="typewriter-slide">
-                    <p id="typewriter-text2">Karyawan yang terinfeksi demam berdarah berat juga harus meninggalkan pekerjaannya.<br>Pasca infeksi, 2 dari 3 pasien mengalami kelelahan hingga beberapa minggu setelah sembuh dari demam berdarah.¹</p>
-                    <div class="footnote" id="footnote2">1. Sigera, P . C., et al. (2021). Dengue and post-infection fatigue: Findings from a prospective cohort – The Colombo Dengue Study. Transactions of the Royal Society of Tropical Medicine and Hygiene, 115(6), 669–676.</div>
-                </div>
-                <div class="typewriter-slide">
-                    <p id="typewriter-text3">
-                        Dengue termasuk dalam daftar 10 penyakit teratas yang dialami oleh karyawan.¹<br>
-                        Waktu absen yang dibutuhkan karyawan untuk dirawat akibat dengue.¹<br>
-                        Biaya yang dikeluarkan perusaahan setiap tahun untuk klaim dengue (untuk pasien rawat inap dan rawat jalan dengan skala 4000 karyawan).¹<br>
-                        Kisaran biaya medis yang diklaim untuk perawatan dengue per pasien (tergantung dari tipe kelas rawat pasien dan tingkat keparahan pasien).²</p>
-                    <div class="footnote" id="footnote3">
-                        1. IPSOS. (2022). Final Report of Value Message of Dengue Vaccine Candidate TAK-003. Data on file.<br>
-                        2. Nadjib, M., Setiawan, E., Putri, S., Nealon, J., Beucher, S., Hadinegoro, S.R., et al. (2019). Economic burden of dengue in Indonesia. PLoS Neglected Tropical Diseases, 13(1), e0007038. https://doi.org/10.1371/journal.pntd.0007038
-                    </div>
-                </div>
-                <div class="typewriter-slide">
-                    <p id="typewriter-text4">Studi kasus 2018-2020: 45 karyawan menderita dengue dan harus absen selama enam hari kerja, total loss perusahaan: 270 hari kerja. 
-                        <br><br>
-                        Beban ekonomi yang ditanggung perusahaan:<br>
-                        * Sick pay selama 270 hari<br>
-                        * Replacement wages selama 270 hari<br>
-                        * Biaya training pekerja pengganti<br>
-                        * Biaya evakuasi untuk area remote<br>
-                        * Biaya medis untuk 45 karyawan <br></p>
-                    <div class="footnote" id="footnote4">1.PERDOKI Cabang DKI Jakarta. 2023.</div>
-                </div>
-            </div>
-        </div>
     </section>
 
     <!-- Partner Companies Section -->
@@ -357,91 +322,10 @@
         });
     </script>
     <script>
-        // Typewriter effect
         document.addEventListener('DOMContentLoaded', function() {
             autoScrollCarousel('partners-slider');
             autoScrollCarousel('publications');
             autoScrollCarousel('events');
-
-            const slides = document.querySelectorAll('.typewriter-slide');
-            let currentSlideIndex = 0;
-
-            function typeWriter(element, onComplete) {
-                if (!element) {
-                    if (onComplete) onComplete();
-                    return;
-                }
-                
-                const originalHTML = element.innerHTML;
-                element.innerHTML = ''; // Clear the element
-
-                // Create a temporary div to parse nodes
-                const tempDiv = document.createElement('div');
-                tempDiv.innerHTML = originalHTML;
-                
-                const nodes = Array.from(tempDiv.childNodes);
-                let currentNodeIndex = 0;
-                let currentTextIndex = 0;
-
-                function type() {
-                    if (currentNodeIndex >= nodes.length) {
-                        if (onComplete) onComplete();
-                        return;
-                    }
-
-                    const node = nodes[currentNodeIndex];
-
-                    if (node.nodeType === Node.TEXT_NODE) {
-                        if (currentTextIndex < node.textContent.length) {
-                            element.innerHTML += node.textContent[currentTextIndex];
-                            currentTextIndex++;
-                            setTimeout(type, 20); // Typing speed
-                        } else {
-                            currentNodeIndex++;
-                            currentTextIndex = 0;
-                            type();
-                        }
-                    } else { // It's an element like <br> or <strong>
-                        element.innerHTML += node.outerHTML;
-                        currentNodeIndex++;
-                        type();
-                    }
-                }
-                type();
-            }
-
-            function showSlide(index) {
-                slides.forEach((slide, i) => {
-                    slide.classList.remove('active');
-                });
-
-                const currentSlide = slides[index];
-                currentSlide.classList.add('active');
-
-                const mainText = currentSlide.querySelector('p:not(.footnote)');
-                const footnote = currentSlide.querySelector('.footnote');
-
-                // Hide footnote initially
-                if(footnote) footnote.style.opacity = 0;
-
-                typeWriter(mainText, () => {
-                    // After main text is done, show the footnote instantly
-                    if(footnote) {
-                        footnote.style.opacity = 1;
-                    }
-                    
-                    // Wait and move to next slide
-                    setTimeout(() => {
-                        currentSlide.classList.remove('active');
-                        setTimeout(() => {
-                            currentSlideIndex = (currentSlideIndex + 1) % slides.length;
-                            showSlide(currentSlideIndex);
-                        }, 500); // Wait for fade out
-                    }, 3000); // Wait 3 seconds before switching
-                });
-            }
-
-            showSlide(currentSlideIndex);
             
             // Intersection Observer for bottom-nav
             const bottomNav = document.querySelector('.bottom-nav');
@@ -477,7 +361,6 @@
             const observer = new IntersectionObserver(observerCallback, observerOptions);
             observer.observe(heroSection);
             observer.observe(footerSection);
-
         });
     </script>
 </body>
